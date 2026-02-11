@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio of a passionate college student showcasing projects, skills, and achievements">
+    <title>My Portfolio | College Student</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-text">Portfolio</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-glow"></div>
+                    <div class="hero-image">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                </div>
+                <h1 class="hero-title">
+                    Hi, I'm <span class="gradient-text">Viral Nayi</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span class="typing-text">Data Science Strategist | Machine Learning Enthusiast</span>
+                </p>
+                <p class="hero-description">
+                    Passionate about technology, innovation, and building amazing digital experiences.
+                    Currently pursuing my degree while exploring the world of data science.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View My Work</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Get In Touch</span>
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="assets/resume.pdf" target="_blank" class="btn btn-secondary">
+                        <span>View My Resume</span>
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <a href="assets/resume.pdf" download="Viral_Resume.pdf" class="btn btn-secondary"
+                        id="downloadResumeBtn">
+                        <span>Download Resume</span>
+                        <i class="fas fa-download"></i>
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/ViralNayi" target="_blank" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/viral-nayi-18158728a/" target="_blank" class="social-link"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/viral_nayi_/" target="_blank" class="social-link"
+                        aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Scroll Down</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+                <p class="section-subtitle">Get to know me better</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image-wrapper">
+                    <div class="about-image-card glass-card">
+                        <i class="fas fa-laptop-code about-icon"></i>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Hello! I'm a College Student & Aspiring Data Scientist</h3>
+                    <p>
+                        I'm currently pursuing my degree in Computer Science/Engineering, with a deep passion for
+                        creating innovative solutions and learning new technologies. My journey in tech started
+                        with curiosity and has evolved into a commitment to excellence.
+                    </p>
+                    <p>
+                        When I'm not coding or studying, you can find me exploring new frameworks, participating
+                        in hackathons, contributing to open-source projects, or brainstorming the next big idea
+                        with fellow students.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item glass-card">
+                            <i class="fas fa-laptop-code"></i>
+                            <h4>26+</h4>
+                            <p>Technologies</p>
+                        </div>
+                        <div class="stat-item glass-card">
+                            <i class="fas fa-certificate"></i>
+                            <h4>3+</h4>
+                            <p>Certifications</p>
+                        </div>
+                        <div class="stat-item glass-card">
+                            <i class="fas fa-project-diagram"></i>
+                            <h4>2+</h4>
+                            <p>Live Projects</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+                <p class="section-subtitle">Technologies I work with</p>
+            </div>
+
+            <!-- Programming Languages Category -->
+            <div class="skill-category">
+                <h3 class="category-title"><i class="fas fa-code"></i> Programming Languages</h3>
+                <div class="skills-grid">
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #3776ab;">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3>Python</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%; --skill-color: #3776ab;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #f0db4f;">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%; --skill-color: #f0db4f;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #336791;">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>SQL</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%; --skill-color: #336791;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #e34c26;">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <h3>HTML5</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%; --skill-color: #e34c26;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #264de4;">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <h3>CSS3</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%; --skill-color: #264de4;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #00599c;">
+                            <i class="fas fa-copyright"></i>
+                        </div>
+                        <h3>C++</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%; --skill-color: #00599c;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Science Libraries Category -->
+            <div class="skill-category">
+                <h3 class="category-title"><i class="fas fa-book"></i> Data Science Libraries</h3>
+                <div class="skills-grid">
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #013243;">
+                            <i class="fas fa-square-root-alt"></i>
+                        </div>
+                        <h3>NumPy</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%; --skill-color: #013243;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #150458;">
+                            <i class="fas fa-table"></i>
+                        </div>
+                        <h3>Pandas</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%; --skill-color: #150458;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #11557c;">
+                            <i class="fas fa-chart-area"></i>
+                        </div>
+                        <h3>Matplotlib</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%; --skill-color: #11557c;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #4c9bd6;">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Seaborn</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%; --skill-color: #4c9bd6;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #f89939;">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>Scikit-learn</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%; --skill-color: #f89939;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #ff6f00;">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>TensorFlow</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%; --skill-color: #ff6f00;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #ee4c2c;">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>PyTorch</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%; --skill-color: #ee4c2c;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #092e20;">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Flask</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%; --skill-color: #092e20;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Development Tools Category -->
+            <div class="skill-category">
+                <h3 class="category-title"><i class="fas fa-tools"></i> Development Tools</h3>
+                <div class="skills-grid">
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #ff7f00;">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Jupyter Notebook</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%; --skill-color: #ff7f00;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #007acc;">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>VS Code</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%; --skill-color: #007acc;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #f05032;">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <h3>Git</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%; --skill-color: #f05032;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #181717;">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3>GitHub</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%; --skill-color: #181717;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #e97627;">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>Tableau</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%; --skill-color: #e97627;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #f2c811;">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Power BI</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%; --skill-color: #f2c811;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #019733;">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <h3>Excel</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%; --skill-color: #019733;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #2496ed;">
+                            <i class="fab fa-docker"></i>
+                        </div>
+                        <h3>Docker</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%; --skill-color: #2496ed;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mathematics & Statistics Category -->
+            <div class="skill-category">
+                <h3 class="category-title"><i class="fas fa-calculator"></i> Mathematics & Statistics</h3>
+                <div class="skills-grid">
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #8b5cf6;">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Probability & Statistics</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%; --skill-color: #8b5cf6;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #3b82f6;">
+                            <i class="fas fa-vial"></i>
+                        </div>
+                        <h3>Hypothesis Testing</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%; --skill-color: #3b82f6;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #ec4899;">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3>Correlation</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%; --skill-color: #ec4899;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #06b6d4;">
+                            <i class="fas fa-arrows-alt-h"></i>
+                        </div>
+                        <h3>Regression</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%; --skill-color: #06b6d4;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #a78bfa;">
+                            <i class="fas fa-square-root-alt"></i>
+                        </div>
+                        <h3>Linear Algebra</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%; --skill-color: #a78bfa;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass-card">
+                        <div class="skill-icon" style="--skill-color: #10b981;">
+                            <i class="fas fa-wave-square"></i>
+                        </div>
+                        <h3>Calculus</h3>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%; --skill-color: #10b981;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
+                <p class="section-subtitle">Things I've built</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card glass-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-bar project-placeholder-icon"></i>
+                        <div class="project-overlay">
+                            <a href="https://v-dashboard14.vercel.app/" target="_blank" class="project-link"
+                                aria-label="View Project">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="https://github.com/ViralNayi/productivity_dashboard" target="_blank"
+                                class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Productivity Dashboard</h3>
+                        <p>A modern productivity tracking dashboard built with TypeScript and deployed on Vercel.
+                            Features real-time analytics and interactive visualizations.</p>
+                        <div class="project-tags">
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">HTML/CSS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card glass-card">
+                    <div class="project-image">
+                        <i class="fas fa-graduation-cap project-placeholder-icon"></i>
+                        <div class="project-overlay">
+                            <a href="https://github.com/ViralNayi/student-data-project" target="_blank"
+                                class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Student Data Analysis</h3>
+                        <p>📊 Data analysis project using Excel on 1000 students' behavioral and academic data,
+                            featuring a dynamic dashboard with slicers, charts, and insights on study habits, parental
+                            education, and exam performance.</p>
+                        <div class="project-tags">
+                            <span class="tag">Excel</span>
+                            <span class="tag">Data Analysis</span>
+                            <span class="tag">Dashboard</span>
+                            <span class="tag">Visualization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My <span class="gradient-text">Education</span></h2>
+                <p class="section-subtitle">Academic journey</p>
+            </div>
+            <div class="education-timeline">
+                <div class="timeline-item glass-card">
+                    <div class="timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023 - Present</span>
+                        <h3>Bachelor's Degree (B.Tech) in Computer Science</h3>
+                        <h4>Paurl University, Vadodara</h4>
+                        <p>Undergrad Developer | DSA Enthusiast | Crafting intelligent systems through Data Science and
+                            Machine Learning | CGPA: 8.34/10.0</p>
+                        <div class="timeline-tags">
+                            <span class="tag">Data Structures</span>
+                            <span class="tag">Algorithms</span>
+                            <span class="tag">Data Science</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Web Development</span>
+                            <span class="tag">Database Systems</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item glass-card">
+                    <div class="timeline-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2022 - 2023</span>
+                        <h3>Higher Secondary Education (HSC)</h3>
+                        <h4>Shree Vardhman Vidhyalaya, Mehsana</h4>
+                        <p>Completed with distinction in Science stream. Developed strong foundation in Mathematics,
+                            Physics, and Computer Science.</p>
+                        <div class="timeline-tags">
+                            <span class="tag">Mathematics</span>
+                            <span class="tag">Physics</span>
+                            <span class="tag">Computer Science</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item glass-card">
+                    <div class="timeline-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2020 - 2021</span>
+                        <h3>Secondary School Education (SSC)</h3>
+                        <h4>Shree Saraswati Vidhya Vihar School, Mehsana</h4>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="certificates" id="certificates">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My <span class="gradient-text">Certificates</span></h2>
+                <p class="section-subtitle">Professional certifications and achievements</p>
+            </div>
+            <div class="certificates-grid">
+                <div class="certificate-card glass-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Data Analytics Job Simulation</h3>
+                        <h4>Deloitte Australia - Forage</h4>
+                        <p class="certificate-date">Issued: July 2025</p>
+                        <p class="certificate-description">Completed a comprehensive job simulation covering Data
+                            Analysis, Data Modeling, and advanced analytics techniques used in professional consulting
+                            environments.</p>
+                        <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_Gm68Jmo3PnWG3A69y_1751732171156_completion_certificate.pdf"
+                            target="_blank" class="btn btn-secondary btn-sm">
+                            <span>View Certificate</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="certificate-card glass-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Programming in C</h3>
+                        <h4>CodeChef</h4>
+                        <p class="certificate-date">Issued: September 2023</p>
+                        <p class="certificate-description">Mastered C programming fundamentals including data
+                            structures, algorithms, and problem-solving techniques through hands-on coding challenges.
+                        </p>
+                        <a href="https://www.codechef.com/certificates/public/e2059e8" target="_blank"
+                            class="btn btn-secondary btn-sm">
+                            <span>View Certificate</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="certificate-card glass-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-python"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Python Programming Pro</h3>
+                        <h4>CodeChef</h4>
+                        <p class="certificate-date">Issued: May 2023</p>
+                        <p class="certificate-description">Advanced Python programming certification demonstrating
+                            proficiency in Python syntax, data structures, object-oriented programming, and algorithmic
+                            problem-solving.</p>
+                        <a href="https://www.codechef.com/certificates/public/7f9731b" target="_blank"
+                            class="btn btn-secondary btn-sm">
+                            <span>View Certificate</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+                <p class="section-subtitle">Let's connect and collaborate</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item glass-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>viralnayi8@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item glass-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+91 95103 86519</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form glass-card" action="https://formsubmit.co/viralnayi8@gmail.com" method="POST">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        <i class="fas fa-comment"></i>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Viral Nayi.</p>
+                <div class="footer-social">
+                    <a href="https://github.com/ViralNayi" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/viral-nayi-18158728a/" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/viral_nayi_/" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
