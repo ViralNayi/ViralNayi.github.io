@@ -40,23 +40,74 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Form submission
+// Form submission
 const contactForm = document.querySelector('.contact-form');
+const result = document.getElementById('result');
+
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
+        // Show loading state
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+        submitBtn.disabled = true;
 
-        // Here you would typically send the form data to a server
-        // For now, we'll just show an alert
-        alert(`Thank you, ${name}! Your message has been received. I'll get back to you soon!`);
+        if (result) {
+            result.innerHTML = "Please wait...";
+            result.style.display = "block";
+            result.style.marginTop = "1rem";
+            result.style.textAlign = "center";
+            result.style.fontWeight = "bold";
+            result.style.color = "var(--text-primary)";
+        }
 
-        // Reset form
-        contactForm.reset();
+        const formData = new FormData(contactForm);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    if (result) {
+                        result.innerHTML = json.message;
+                        result.style.color = "#00ff00"; // Green color
+                    }
+                    contactForm.reset();
+                } else {
+                    console.log(response);
+                    if (result) {
+                        result.innerHTML = json.message;
+                        result.style.color = "#ff0000"; // Red color
+                    }
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                if (result) {
+                    result.innerHTML = "Something went wrong!";
+                    result.style.color = "#ff0000";
+                }
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+
+                if (result) {
+                    setTimeout(() => {
+                        result.style.display = "none";
+                    }, 5000);
+                }
+            });
     });
 }
 
