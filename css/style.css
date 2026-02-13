@@ -365,27 +365,25 @@ h6 {
     z-index: 1;
 }
 
+/* Hero Content Layout */
 .hero-content {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    text-align: left;
     animation: fadeInUp 1s ease;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.hero-text {
+    flex: 1;
+    max-width: 60%;
 }
 
 .hero-image-wrapper {
     position: relative;
     display: inline-block;
-    margin-bottom: 2rem;
+    flex-shrink: 0;
 }
 
 .hero-image-glow {
@@ -393,8 +391,8 @@ h6 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     background: var(--gradient-primary);
     border-radius: 50%;
     filter: blur(40px);
@@ -418,22 +416,30 @@ h6 {
 
 .hero-image {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     background: var(--gradient-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 4rem;
-    color: white;
     border: 4px solid var(--glass-border);
     animation: float 6s infinite ease-in-out;
+    overflow: hidden;
+    /* Ensure image stays within circle */
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .hero-title {
     font-size: 4rem;
     margin-bottom: 1rem;
+    line-height: 1.1;
 }
 
 .hero-subtitle {
@@ -465,21 +471,24 @@ h6 {
     font-size: 1.1rem;
     color: var(--text-secondary);
     max-width: 600px;
-    margin: 0 auto 2rem;
+    margin: 0 0 2rem 0;
+    /* Aligned left */
 }
 
 .hero-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    justify-content: center;
+    justify-content: flex-start;
+    /* Aligned left */
     margin-bottom: 3rem;
 }
 
 .social-links {
     display: flex;
     gap: 1rem;
-    justify-content: center;
+    justify-content: flex-start;
+    /* Aligned left */
 }
 
 .social-link {
@@ -503,64 +512,7 @@ h6 {
     box-shadow: 0 10px 25px rgba(0, 245, 255, 0.4);
 }
 
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    animation: bounce 2s infinite;
-}
 
-@keyframes bounce {
-
-    0%,
-    100% {
-        transform: translateX(-50%) translateY(0);
-    }
-
-    50% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-}
-
-.mouse {
-    width: 30px;
-    height: 50px;
-    border: 2px solid var(--text-secondary);
-    border-radius: 15px;
-    margin: 0 auto 10px;
-    position: relative;
-}
-
-.wheel {
-    width: 4px;
-    height: 10px;
-    background: var(--text-secondary);
-    border-radius: 2px;
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: scroll 2s infinite;
-}
-
-@keyframes scroll {
-    0% {
-        top: 10px;
-        opacity: 1;
-    }
-
-    100% {
-        top: 30px;
-        opacity: 0;
-    }
-}
-
-.scroll-indicator p {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-}
 
 /* ===================================
    About Section
@@ -636,7 +588,7 @@ h6 {
 }
 
 .skill-category {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .skill-category:last-child {
@@ -644,12 +596,12 @@ h6 {
 }
 
 .category-title {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding-bottom: 1rem;
+    gap: 0.8rem;
+    padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--glass-border);
 }
 
@@ -658,29 +610,29 @@ h6 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
 }
 
 .skill-card {
-    padding: 2rem;
+    padding: 1.5rem;
     text-align: center;
 }
 
 .skill-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
+    font-size: 3rem;
+    margin-bottom: 0.8rem;
     color: var(--skill-color);
 }
 
 .skill-card h3 {
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
 }
 
 .skill-bar {
@@ -1106,6 +1058,26 @@ h6 {
 }
 
 @media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-description {
+        margin: 0 auto 2rem;
+    }
+
+    .hero-buttons,
+    .social-links {
+        justify-content: center;
+    }
+
     .hero-title {
         font-size: 2.5rem;
     }
