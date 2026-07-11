@@ -416,6 +416,14 @@ setupFilter('.projects-filter', '.projects-grid .grid-item');
 // Project Details Modal Implementation
 // ==========================================
 const projectDetailsData = {
+    litwise_ai: {
+        title: 'LitWise AI',
+        image: 'assets/images/litwise_ai.png',
+        tags: ['React', 'FastAPI', 'FAISS', 'Gemini API', 'RAG', 'TypeScript'],
+        description: 'LitWise AI is an advanced, AI-powered research literature analysis platform and RAG (Retrieval-Augmented Generation) system. It enables researchers, students, and academics to upload PDF files, parse abstract and author metadata, perform semantic searches, chat with documents (fully grounded in citations with exact page references), compare multiple articles side-by-side using dynamic matrices, and automatically identify research gaps. Built with a FastAPI Python backend, FAISS vector search, SQLite, and a responsive Neo-Brutalist React and TypeScript frontend.',
+        live: 'https://litwiseai.vercel.app/',
+        code: 'https://github.com/ViralNayi/LitWise_AI'
+    },
     stock_predictor: {
         title: 'Stock Price Predictor',
         image: 'assets/images/stock_predictor.png',
@@ -685,3 +693,282 @@ function updateTimelineProgress() {
         }
     });
 }
+
+// ==========================================
+// Dual-Mode Projects View (Grid & Swipe Stack)
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const gridBtn = document.getElementById('viewGridBtn');
+    const swipeBtn = document.getElementById('viewSwipeBtn');
+    const projectsGrid = document.getElementById('projectsGrid');
+    const swipeControls = document.getElementById('swipeControls');
+
+    if (!projectsGrid) return;
+
+    let activeView = 'grid'; // 'grid' or 'swipe'
+    let visibleCards = [];
+    let swipedHistory = [];
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let topCardEl = null;
+
+    // Initialize toggle button listeners
+    if (gridBtn && swipeBtn) {
+        gridBtn.addEventListener('click', () => switchView('grid'));
+        swipeBtn.addEventListener('click', () => switchView('swipe'));
+    }
+
+    function switchView(view) {
+        if (activeView === view) return;
+        activeView = view;
+
+        if (view === 'grid') {
+            gridBtn.classList.add('active');
+            swipeBtn.classList.remove('active');
+            projectsGrid.classList.add('grid-layout');
+            projectsGrid.classList.remove('swipe-layout');
+            if (swipeControls) swipeControls.classList.remove('active');
+            resetGridStyles();
+        } else {
+            swipeBtn.classList.add('active');
+            gridBtn.classList.remove('active');
+            projectsGrid.classList.add('swipe-layout');
+            projectsGrid.classList.remove('grid-layout');
+            if (swipeControls) swipeControls.classList.add('active');
+            updateVisibleCards();
+            renderStack();
+        }
+    }
+
+    function resetGridStyles() {
+        const cards = projectsGrid.querySelectorAll('.project-card');
+        cards.forEach(card => {
+            card.style.transform = '';
+            card.style.opacity = '';
+            card.style.zIndex = '';
+            card.style.display = '';
+            card.classList.remove('stack-card', 'top-card', 'grabbed');
+        });
+    }
+
+    function updateVisibleCards() {
+        const allCards = Array.from(projectsGrid.querySelectorAll('.project-card'));
+        visibleCards = allCards.filter(card => !card.classList.contains('hide'));
+    }
+
+    // Hook into category filters to update visible cards when stack view is active
+    const filterBtns = document.querySelectorAll('.projects-filter .filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            setTimeout(() => {
+                if (activeView === 'swipe') {
+                    swipedHistory = [];
+                    updateVisibleCards();
+                    renderStack();
+                }
+            }, 50);
+        });
+    });
+
+    function renderStack() {
+        if (activeView !== 'swipe') return;
+
+        projectsGrid.querySelectorAll('.project-card').forEach(card => {
+            card.classList.remove('stack-card', 'top-card');
+            card.style.display = 'none';
+            card.style.transform = '';
+            card.style.opacity = '';
+            card.style.zIndex = '';
+        });
+
+        if (visibleCards.length === 0) return;
+
+        visibleCards.forEach((card, index) => {
+            card.classList.add('stack-card');
+            
+            if (index === 0) {
+                card.style.display = 'flex';
+                card.style.zIndex = '100';
+                card.style.opacity = '1';
+                card.style.transform = 'translate3d(0, 0, 0) rotate(0deg) scale(1)';
+                card.classList.add('top-card');
+                setupDragEvents(card);
+                topCardEl = card;
+            } else if (index === 1) {
+                card.style.display = 'flex';
+                card.style.zIndex = '99';
+                card.style.opacity = '0.85';
+                card.style.transform = 'translate3d(0, 15px, 0) rotate(1.2deg) scale(0.95)';
+                removeDragEvents(card);
+            } else if (index === 2) {
+                card.style.display = 'flex';
+                card.style.zIndex = '98';
+                card.style.opacity = '0.65';
+                card.style.transform = 'translate3d(0, 30px, 0) rotate(-1.5deg) scale(0.9)';
+                removeDragEvents(card);
+            } else {
+                card.style.display = 'none';
+                removeDragEvents(card);
+            }
+        });
+    }
+
+    function setupDragEvents(card) {
+        card.addEventListener('mousedown', dragStart);
+        card.addEventListener('touchstart', dragStart, { passive: true });
+    }
+
+    function removeDragEvents(card) {
+        card.removeEventListener('mousedown', dragStart);
+        card.removeEventListener('touchstart', dragStart);
+        card.classList.remove('grabbed');
+    }
+
+    function dragStart(e) {
+        if (isDragging || !topCardEl) return;
+        isDragging = true;
+        
+        topCardEl.classList.add('grabbed');
+        topCardEl.style.transition = 'none';
+
+        if (e.type === 'touchstart') {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        } else {
+            startX = e.clientX;
+            startY = e.clientY;
+        }
+
+        currentX = startX;
+        currentY = startY;
+
+        document.addEventListener('mousemove', dragMove);
+        document.addEventListener('touchmove', dragMove, { passive: false });
+        document.addEventListener('mouseup', dragEnd);
+        document.addEventListener('touchend', dragEnd);
+    }
+
+    // Touch/drag calculations
+    function dragMove(e) {
+        if (!isDragging || !topCardEl) return;
+
+        if (e.cancelable) e.preventDefault();
+
+        if (e.type === 'touchmove') {
+            currentX = e.touches[0].clientX;
+            currentY = e.touches[0].clientY;
+        } else {
+            currentX = e.clientX;
+            currentY = e.clientY;
+        }
+
+        const deltaX = currentX - startX;
+        const deltaY = currentY - startY;
+        const rotate = deltaX * 0.08;
+
+        topCardEl.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0) rotate(${rotate}deg) scale(1.02)`;
+    }
+
+    function dragEnd() {
+        if (!isDragging || !topCardEl) return;
+        isDragging = false;
+
+        document.removeEventListener('mousemove', dragMove);
+        document.removeEventListener('touchmove', dragMove);
+        document.removeEventListener('mouseup', dragEnd);
+        document.removeEventListener('touchend', dragEnd);
+
+        topCardEl.classList.remove('grabbed');
+
+        const deltaX = currentX - startX;
+        const swipeThreshold = 120;
+
+        if (deltaX > swipeThreshold) {
+            swipeCard(1);
+        } else if (deltaX < -swipeThreshold) {
+            swipeCard(-1);
+        } else {
+            topCardEl.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            topCardEl.style.transform = 'translate3d(0, 0, 0) rotate(0deg) scale(1)';
+        }
+    }
+
+    function swipeCard(direction) {
+        if (!topCardEl) return;
+
+        const cardToSwipe = topCardEl;
+        removeDragEvents(cardToSwipe);
+        
+        cardToSwipe.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease';
+        const rotate = direction * 35;
+        const flyX = direction * 1.5 * window.innerWidth;
+        
+        cardToSwipe.style.transform = `translate3d(${flyX}px, 15px, 0) rotate(${rotate}deg)`;
+        cardToSwipe.style.opacity = '0';
+
+        const swipedCard = visibleCards.shift();
+        swipedHistory.push(swipedCard);
+        visibleCards.push(swipedCard);
+
+        setTimeout(() => {
+            renderStack();
+        }, 300);
+    }
+
+    // Button controls
+    const btnLeft = document.getElementById('swipeLeftBtn');
+    const btnRight = document.getElementById('swipeRightBtn');
+    const btnPrev = document.getElementById('swipePrevBtn');
+    const btnInfo = document.getElementById('swipeInfoBtn');
+
+    if (btnLeft) {
+        btnLeft.addEventListener('click', () => {
+            if (visibleCards.length > 1) {
+                swipeCard(-1);
+            }
+        });
+    }
+
+    if (btnRight) {
+        btnRight.addEventListener('click', () => {
+            if (visibleCards.length > 1) {
+                swipeCard(1);
+            }
+        });
+    }
+
+    if (btnPrev) {
+        btnPrev.addEventListener('click', () => {
+            if (swipedHistory.length === 0) return;
+            
+            const recoveredCard = swipedHistory.pop();
+            const bottomIndex = visibleCards.indexOf(recoveredCard);
+            if (bottomIndex > -1) {
+                visibleCards.splice(bottomIndex, 1);
+            }
+
+            visibleCards.unshift(recoveredCard);
+            
+            recoveredCard.style.transition = 'none';
+            recoveredCard.style.opacity = '0';
+            recoveredCard.style.transform = 'translate3d(0, -100px, 0) scale(0.9) rotate(-10deg)';
+            recoveredCard.style.display = 'flex';
+            
+            recoveredCard.offsetHeight; // force reflow
+
+            renderStack();
+        });
+    }
+
+    if (btnInfo) {
+        btnInfo.addEventListener('click', () => {
+            if (topCardEl) {
+                const detailsBtn = topCardEl.querySelector('.open-details-btn');
+                if (detailsBtn) detailsBtn.click();
+            }
+        });
+    }
+});
