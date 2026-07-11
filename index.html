@@ -277,7 +277,7 @@
                         </div>
                         <div class="stat-item glass-card">
                             <i class="fas fa-project-diagram"></i>
-                            <h4>2+</h4>
+                            <h4>4+</h4>
                             <p>Live Projects</p>
                         </div>
                     </div>
@@ -604,7 +604,47 @@
                 <button class="filter-btn" data-filter="productivity">Productivity & Web</button>
             </div>
 
-            <div class="projects-grid">
+            <!-- View Mode Switcher -->
+            <div class="view-toggle-bar">
+                <button class="view-toggle-btn active" data-view="grid" id="viewGridBtn">
+                    <i class="fas fa-th-large"></i> Grid View
+                </button>
+                <button class="view-toggle-btn" data-view="swipe" id="viewSwipeBtn">
+                    <i class="fas fa-clone"></i> Swipe Deck
+                </button>
+            </div>
+
+            <div class="projects-grid grid-layout" id="projectsGrid">
+                <div class="project-card glass-card grid-item" data-category="data-science">
+                    <div class="project-image">
+                        <img src="assets/images/litwise_ai.png" alt="LitWise AI" class="project-img">
+                        <div class="project-overlay">
+                            <a href="https://litwiseai.vercel.app/" target="_blank"
+                                class="project-link" aria-label="View Project">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link open-details-btn" data-project="litwise_ai"
+                                aria-label="View Details">
+                                <i class="fas fa-info-circle"></i>
+                            </a>
+                            <a href="https://github.com/ViralNayi/LitWise_AI" target="_blank"
+                                class="project-link" aria-label="View Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>LitWise AI</h3>
+                        <p>An AI-powered literature analysis platform and RAG system for researchers. Ingests PDFs, extracts metadata, performs citation-grounded semantic search, and uncovers research gaps.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">FAISS</span>
+                            <span class="tag">Gemini API</span>
+                            <span class="tag">RAG</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="project-card glass-card grid-item" data-category="data-science">
                     <div class="project-image">
                         <img src="assets/images/stock_predictor.png" alt="Stock Price Predictor" class="project-img">
@@ -698,6 +738,22 @@
                     </div>
                 </div>
 
+            </div>
+
+            <!-- Swipe Controls -->
+            <div class="swipe-controls" id="swipeControls">
+                <button class="swipe-ctrl-btn btn-prev" id="swipePrevBtn" title="Rewind Card">
+                    <i class="fas fa-undo"></i>
+                </button>
+                <button class="swipe-ctrl-btn btn-left" id="swipeLeftBtn" title="Swipe Left / Skip">
+                    <i class="fas fa-times"></i>
+                </button>
+                <button class="swipe-ctrl-btn btn-info" id="swipeInfoBtn" title="View Details">
+                    <i class="fas fa-info-circle"></i>
+                </button>
+                <button class="swipe-ctrl-btn btn-right" id="swipeRightBtn" title="Swipe Right / Like">
+                    <i class="fas fa-heart"></i>
+                </button>
             </div>
         </div>
 
